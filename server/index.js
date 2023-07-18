@@ -15,7 +15,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://piyush-stackoverflowclone.netlify.app/",
     credentials: true,
   })
 );
