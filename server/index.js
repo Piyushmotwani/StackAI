@@ -79,8 +79,8 @@ app.get("/api/generate-otp", async (req, res) => {
       {
         headers: {
           "Content-Type": "application/json",
-          "X-RapidAPI-Host": process.env.X-RapidAPI-Host,
-          "X-RapidAPI-Key": process.env.X-RapidAPI-Key,
+          "X-RapidAPI-Host": "rapidprod-sendgrid-v1.p.rapidapi.com",
+          "X-RapidAPI-Key": "9142dae4d6msh08bf27d6ef45054p110820jsn6685d8e4efb8",
         },
       }
     );
