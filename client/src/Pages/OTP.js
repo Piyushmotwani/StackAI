@@ -8,15 +8,15 @@ const OTPVerification = () => {
   const [otp, setOTP] = useState("");
   const [isOTPGenerated, setIsOTPGenerated] = useState(false);
   const handleGetOTP = async () => {
-     const requestOptions = {
-       method: "GET",
-       headers: {
-         "Content-Type": "application/json",
-         useremail: emailId, // Add the user's email to the headers
-       },
-     };
+    //  const requestOptions = {
+    //    method: "GET",
+    //    headers: {
+    //      "Content-Type": "application/json",
+    //      useremail: emailId, // Add the user's email to the headers
+    //    },
+    //  };
     try {
-      const response = await fetch("/api/generate-otp", requestOptions);
+      const response = await fetch(`/api/generate-otp?email=${emailId}`);
       if (response.ok) {
         const data = await response.json();
         setIsOTPGenerated(true);
