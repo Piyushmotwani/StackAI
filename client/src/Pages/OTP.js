@@ -3,16 +3,21 @@ import { useSelector } from "react-redux";
 import "./OTP.css";
 
 const OTPVerification = () => {
-    const currentUser = useSelector((state) => state.currentUserReducer)?.result;
+ const currentUser = useSelector((state) => state.currentUserReducer)?.result;
   const emailId = currentUser.email;
-  const url = `/api/generate-otp?emailId=${encodeURIComponent(emailId)}`;
   const [otp, setOTP] = useState("");
   const [isOTPGenerated, setIsOTPGenerated] = useState(false);
   const handleGetOTP = async () => {
+     const requestOptions = {
+       method: "GET",
+       headers: {
+         "Content-Type": "application/json",
+         useremail: emailId, // Add the user's email to the headers
+       },
+     };
     try {
-      const response = await fetch(url);
+      const response = await fetch("/api/generate-otp", requestOptions);
       if (response.ok) {
-        
         const data = await response.json();
         setIsOTPGenerated(true);
         setOTP(data.otp);

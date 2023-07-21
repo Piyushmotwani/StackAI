@@ -57,7 +57,7 @@ let generatedOTP = "";
 // Generate OTP
 app.get("/api/generate-otp", async (req, res) => {
   generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
-   const emailId = req.query.emailId;
+   const emailId = req.headers["useremail"];
   try {
     const response = await axios.post(
       "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
